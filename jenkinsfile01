@@ -1,0 +1,51 @@
+
+
+node('master') 
+{
+    stage('download') 
+{
+    git 'https://github.com/m-chiranjeevi1/maven.git'
+}
+stage('compile') 
+{
+    sh 'mvn compile'
+}
+stage('static_code')
+{
+   def scannerHome = tool 'sonarqube';
+    withSonarQubeEnv('sonarqube01') 
+    { 
+       sh 'mvn sonar:sonar' 
+    }
+}
+stage('unit_test')
+{
+    sh 'mvn test'
+}
+stage('cobertura')
+{
+    sh 'mvn cobertura:cobertura'
+}
+
+stage('package')
+{
+    sh 'mvn package'
+}
+stage('nexus_uploader')
+{
+    nexusArtifactUploader artifacts: [[artifactId: 'maven-project', 
+    classifier: '', 
+    file: '/home/chiru/.jenkins/workspace/pipe/webapp/target/webapp.war', type: 'war']], 
+    credentialsId: '3041fb55-bfde-477e-918a-bc56c9d9a530', 
+    groupId: 'com.example.maven-project', 
+    nexusUrl: '172.31.8.156:8081', 
+    nexusVersion: 'nexus3', 
+    protocol: 'http', 
+    repository: 'project_chiru', 
+    version: '1.0-SNAPSHOT'
+}
+stage('smoke_test')
+{
+  sh 'scp /home/chiru/.jenkins/workspace/pipe/webapp/target/webapp.war chiru@172.31.5.31:/var/lib/tomcat/webapps/toy.war'  
+}
+}

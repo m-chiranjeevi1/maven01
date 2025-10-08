@@ -1,0 +1,7 @@
+in build-----> execute sonar scanner----> in analysis properties   
+
+(sonar.projectKey=sonar05
+sonar.organization=sonar05
+sonar.host.url=http://172.31.4.228:9000
+sonar.login=78e240171f7846615df0dfdd8818c8669ef8895d
+sonar.java.binaries=target)
