@@ -5,7 +5,7 @@ WORKDIR $test_home
 COPY webapp/src .
 ADD webapp/pom.xml .
 RUN apt-get -y update && \
-    apt-get install git maven openjdk-21-jdk
+    apt-get install -y git maven openjdk-21-jdk
 RUN mkdir -p doc/imp && \
     echo "hello,working fine!" >> doc/imp/check.txt
 VOLUME ["/test/prac"]
