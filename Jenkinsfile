@@ -3,7 +3,8 @@ node('master')
     stage('Continuous Download') 
 	{
     //git 'https://github.com/sunildevops77/maven.git'
-      git 'https://github.com/m-chiranjeevi1/maven.git'
+      //git 'https://github.com/m-chiranjeevi1/maven.git'
+		checkout scm
 	}
     stage('Continuous Build') 
 	{
