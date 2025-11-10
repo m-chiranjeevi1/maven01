@@ -1,3 +1,5 @@
+def git_url = 'https://github.com/m-chiranjeevi1/maven.git'
+def git_cred = 'github_credentials'
 pipeline
 {
     agent any
@@ -8,7 +10,7 @@ pipeline
             steps
             {
                 //git 'https://github.com/selenium-saikrishna/maven.git'
-                git url: 'https://github.com/m-chiranjeevi1/maven.git', credentialsId: 'github_credentials', branch: "${env.BRANCH_NAME}"
+                git url: "${git_url}", credentialsId: "${git_cred}", branch: "${env.BRANCH_NAME}"
 		        sh "git checkout ${env.BRANCH_NAME}"
                 checkout scm
             }
