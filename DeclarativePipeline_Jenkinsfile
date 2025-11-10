@@ -8,6 +8,8 @@ pipeline
             steps
             {
                 //git 'https://github.com/selenium-saikrishna/maven.git'
+                git url: 'https://github.com/m-chiranjeevi1/maven.git', credentialsId: 'github_credentials', branch: "${env.BRANCH_NAME}"
+		        sh 'git checkout "${env.BRANCH_NAME}"'
                 checkout scm
             }
         }
