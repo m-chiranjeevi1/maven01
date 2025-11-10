@@ -3,7 +3,7 @@ node('master')
     stage('Continuous Download') 
 	{
     //git 'https://github.com/sunildevops77/maven.git'
-      git url: 'https://github.com/m-chiranjeevi1/maven.git', credentialsId: "${github_credentials}", branch: "${env.BRANCH_NAME}"
+      git url: 'https://github.com/m-chiranjeevi1/maven.git', credentialsId: 'github_credentials', branch: "${env.BRANCH_NAME}"
 		  sh 'git checkout "${env.BRANCH_NAME}"'
 		//checkout scm
 	}
