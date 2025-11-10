@@ -12,7 +12,7 @@ pipeline
                 //git 'https://github.com/selenium-saikrishna/maven.git'
                 git url: "${git_url}", credentialsId: "${git_cred}", branch: "${env.BRANCH_NAME}"
 		        sh "git checkout ${env.BRANCH_NAME}"
-                checkout scm
+                //checkout scm
             }
         }
         stage('ContBuild')
