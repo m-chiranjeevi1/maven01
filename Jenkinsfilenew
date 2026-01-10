@@ -1,5 +1,9 @@
 pipeline {
 agent any
+options {
+overrideIndexTriggers(false)
+//disableConcurrentBuilds()
+}
   stages {
     stage('hello') {
        steps {
