@@ -2,7 +2,7 @@ pipeline {
 agent any
 options {
 overrideIndexTriggers(false)
-//disableConcurrentBuilds()
+disableConcurrentBuilds()
 }
   stages {
     stage('hello') {
