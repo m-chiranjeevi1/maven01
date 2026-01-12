@@ -5,7 +5,7 @@ options {
 overrideIndexTriggers(false)
 disableConcurrentBuilds()
 timestamps()
-ansicolor('xterm')
+ansiColor('xterm')
 }
   stages {
     stage('hello') {
