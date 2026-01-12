@@ -2,8 +2,10 @@
 pipeline {
 agent any
 options {
-overrideIndexTriggers(false)
+overrideIndexTriggers(true)
 disableConcurrentBuilds()
+timestamps()
+ansicolor('xterm')
 }
   stages {
     stage('hello') {
