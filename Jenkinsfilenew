@@ -2,7 +2,7 @@
 pipeline {
 agent any
 options {
-overrideIndexTriggers(true)
+overrideIndexTriggers(false)
 disableConcurrentBuilds()
 timestamps()
 ansicolor('xterm')
