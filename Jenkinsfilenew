@@ -17,5 +17,10 @@ timestamps()
        sh 'mvn clean install'
       }
     }
+    stage('test') {
+      steps {
+      echo "how r u!"
+      }
+    }
   }
 }
