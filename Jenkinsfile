@@ -7,10 +7,10 @@ node('master')
 		  sh 'git checkout "${env.BRANCH_NAME}"'
 		//checkout scm
 	}
- //    stage('Continuous Build') 
-	// {
- //    sh label: '', script: 'mvn package'
-	// }
+    stage('Continuous Build') 
+	{
+    sh label: '', script: 'mvn package'
+	}
 //    /* stage('Continuous Deployment') 
 // 	{
 // sh label: '', script: 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war   ubuntu@172.31.26.217:/var/lib/tomcat8/webapps/qaenv.war'
