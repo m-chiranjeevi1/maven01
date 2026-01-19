@@ -1,0 +1,26 @@
+//def githubcred = 'github_token'
+pipeline {
+agent any
+options {
+overrideIndexTriggers(false)
+disableConcurrentBuilds()
+timestamps()
+}
+  stages {
+    stage('hello') {
+       steps {
+         echo "hello world!"
+       }
+    }
+    stage('build') {
+      steps {
+       sh 'mvn clean install'
+      }
+    }
+    stage('test') {
+      steps {
+      echo "how r u!"
+      }
+    }
+  }
+}
