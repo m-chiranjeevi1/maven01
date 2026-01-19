@@ -8,7 +8,7 @@ RUN apt-get -y update && \
     apt-get install -y git maven openjdk-21-jdk
 RUN mkdir -p doc/imp && \
     echo "hello,working fine!" >> doc/imp/check.txt
-VOLUME ["/test/prac"]
+//VOLUME ["/test/prac"]
 RUN echo "hello, good morning!" >> /test/prac/test01.txt
 
     
